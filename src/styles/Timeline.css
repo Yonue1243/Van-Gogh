@@ -1,6 +1,3 @@
-
-
-
         .timeline-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -149,11 +146,6 @@
             pointer-events: none;
         }
 
-        .timeline-item:nth-child(odd) .timeline-content {
-            border-left: none;
-            border-right: none;
-        }
-
         .timeline-content:hover {
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
@@ -229,17 +221,7 @@
             font-size: 1.1rem;
         }
 
-        .timeline-content::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
-            border-radius: 8px 8px 0 0;
-        }
-
+        /* Animaciones */
         @keyframes fadeIn {
             to {
                 opacity: 1;
@@ -254,72 +236,44 @@
         .timeline-item:nth-child(5) { animation-delay: 1.5s; }
         .timeline-item:nth-child(6) { animation-delay: 1.8s; }
 
-        .gold-particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, var(--primary-color), transparent);
-            border-radius: 50%;
-            opacity: 0;
-            animation: float 8s infinite linear;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Responsive */
         @media screen and (max-width: 1000px) {
             .timeline::after {
-                left: 31px;
+                left: 40px;
             }
 
             .timeline-item {
                 width: 100%;
-                padding-left: 70px;
-                padding-right: 0;
+                padding-left: 80px;
+                padding-right: 20px;
+                left: 0 !important;
+                justify-content: flex-start;
             }
 
             .timeline-item:nth-child(odd) {
-                left: 0;
-                padding-left: 70px;
-                padding-right: 0;
+                left: 0 !important;
+                padding-left: 80px;
+                padding-right: 20px;
+                justify-content: flex-start;
             }
 
             .timeline-item::before {
-                left: 21px;
+                left: 40px;
                 right: auto;
+                margin-left: -20px;
             }
 
             .timeline-content {
-                width: 85%;
+                width: 90%;
+                max-width: 600px;
             }
             
             .timeline-content h2::after {
                 left: 0;
                 transform: none;
             }
+        .timeline-item:nth-child(odd)::before {
+            right: auto;
+        }
         }
 
         @media screen and (max-width: 600px) {
@@ -327,8 +281,31 @@
                 font-size: 2.5rem;
             }
             
+            .timeline::after {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                padding-left: 60px;
+                padding-right: 15px;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                padding-left: 60px;
+                padding-right: 15px;
+            }
+            
+            .timeline-item::before {
+                left: 30px;
+                margin-left: -15px;
+                width: 30px;
+                height: 30px;
+                font-size: 1.2rem;
+            }
+            
             .timeline-content {
                 padding: 1.8rem;
+                width: 95%;
             }
             
             .timeline-content h2 {
@@ -338,4 +315,14 @@
             .timeline-img {
                 height: 200px;
             }
+            
+            .timeline-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            .timeline-item:nth-child(odd)::before {
+            left: 30px;
+            right: auto;
+        }
         }
