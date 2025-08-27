@@ -4,31 +4,31 @@
             "date": "1885",
             "title": "Los comedores de Patatas",
             "desc": "Van Gogh creó «Los comedores de patatas» en Nuenen, una pequeña ciudad en los Países Bajos, durante un período en el que estaba muy interesado en la vida de los campesinos y los trabajadores rurales. Van Gogh vivió en la casa de sus padres en Nuenen durante dos años y medio, y durante ese tiempo produjo muchas obras que retratan la vida cotidiana de los habitantes del lugar.",
-            "img": "/public/patatas.jpg"
+            "img": "/patatas.jpg"
         },
         {
             "date": "16 September 1888",
             "title": "Terraza de café por la noche",
             "desc": "Una de las cosas que hace que «Terraza de café por la noche» sea una obra tan significativa es la forma en que Van Gogh utilizó el color y la luz para crear una sensación de vida y movimiento en la escena. El artista empleó una técnica conocida como «divisionismo», en la que los colores se aplican en pequeñas pinceladas separadas para crear una mezcla óptica en el ojo del espectador. Este enfoque permite que los colores se mezclen en la mente del espectador en lugar de hacerlo en el lienzo, lo que produce un efecto de vibración y brillo.",
-            "img": "/public/terraza.jpg"
+            "img": "/terraza.jpg"
         },
         {
             "date": "1888",
             "title": "Noche estrellada sobre el Ródano",
             "desc": "En abril de 1888, le escribió a su hermano Theo: «Necesito una noche estrellada con cipreses o tal vez sobre un campo de trigo maduro». En junio, le confió al pintor Emile Bernard: «Pero, ¿cuándo pintaré el cielo estrellado, este cuadro que sigue atormentándome?» Y, en septiembre, en una carta a su hermana, evocaba el mismo tema: «A menudo me parece que la noche tiene aún más colores que el día». <strong>Las estrellas brillan como piedras preciosas</strong>",
-            "img": "/public/estrella.jpg"
+            "img": "/estrella.jpg"
         },
         {
             "date": "1889",
             "title": "Lirios",
             "desc": "A través del uso del color, Van Gogh logra transmitir una gama de emociones en «Lirios«. Los tonos vivos y cálidos evocan una sensación de alegría y vitalidad. La combinación de colores y la pincelada enérgica crean una sensación de dinamismo y pasión en la pintura.",
-            "img": "/public/lirios.jpg"
+            "img": "/lirios.jpg"
         },
         {
             "date": "Julio de 1890",
             "title": "Campo de trigo con Cuervos",
             "desc": "En julio de 1890, Van Gogh pintó «Campo de trigo con cuervos». Esta obra es una muestra de su habilidad para capturar la naturaleza en su forma más pura. El campo de trigo está rodeado de cuervos, que se ven reflejados en la pintura. La pintura muestra la belleza de la naturaleza en su estado más puro, y es una obra que ha sido admirándamente por los artistas de la época.",
-            "img": "/public/cuervos.png"
+            "img": "/cuervos.png"
         }
     ]
 }
