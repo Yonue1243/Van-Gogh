@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vincent van Gogh - Legado Artístico</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <section class="hero-section">
+        <div class="video-placeholder"></div>
+        
+        <div class="loader" id="loader">
+            <div class="loader-circle"></div>
+        </div>
+        
         <div class="video-background">
-            <video autoplay muted loop playsinline>
+            <video id="bgVideo" autoplay muted loop playsinline preload="auto" poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100%' height='100%' fill='%231a1300'/></svg>">
                 <source src="/noche-estrellada.mp4" type="video/mp4">
+                <source src="/noche-estrellada.webm" type="video/webm">
                 Tu navegador no soporta videos HTML5.
             </video>
         </div>
@@ -26,41 +34,92 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('bgVideo');
+            const loader = document.getElementById('loader');
             const animatedElements = document.querySelectorAll('.animate-fade');
             
-            setTimeout(() => {
-                animatedElements.forEach((element, index) => {
-                    setTimeout(() => {
-                        element.classList.add('visible');
-                    }, 200 * index);
-                });
-            }, 300);
+            const isVideoPlaying = (video) => {
+                return !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
+            };
             
-            createParticles();
-        });
-        
-        function createParticles() {
-            const container = document.getElementById('particles');
-            const particleCount = 30;
+            const loadVideo = () => {
+                video.load();
+                
+                const playPromise = video.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        video.classList.add('loaded');
+                        loader.classList.add('hidden');
+                        showContent();
+                    }).catch(error => {
+                        console.log("Reproducción automática fallida:", error);
+                        video.muted = true; 
+                        video.play().then(() => {
+                            video.classList.add('loaded');
+                            loader.classList.add('hidden');
+                            showContent();
+                        }).catch(e => {
+                            console.log("Segundo intento fallido:", e);
+                            loader.classList.add('hidden');
+                            showContent();
+                        });
+                    });
+                }
+            };
             
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
+            const showContent = () => {
+                setTimeout(() => {
+                    animatedElements.forEach((element, index) => {
+                        setTimeout(() => {
+                            element.classList.add('visible');
+                        }, 200 * index);
+                    });
+                }, 300);
                 
-                const size = Math.random() * 5 + 3;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
+                createParticles();
+            };
+            
+            video.addEventListener('loadeddata', () => {
+                console.log("Video cargado");
+            });
+            
+            video.addEventListener('canplay', () => {
+                console.log("Video listo para reproducirse");
+                loader.classList.add('hidden');
+            });
+            
+            video.addEventListener('error', (e) => {
+                console.error("Error al cargar el video:", e);
+                loader.classList.add('hidden');
+                showContent();
+            });
+            
+            setTimeout(loadVideo, 100);
+            
+            function createParticles() {
+                const container = document.getElementById('particles');
+                const particleCount = 30;
                 
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                
-                particle.style.animationDelay = `${Math.random() * 5}s`;
-                
-                particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
-                
-                container.appendChild(particle);
+                for (let i = 0; i < particleCount; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    const size = Math.random() * 5 + 3;
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.top = `${Math.random() * 100}%`;
+                    
+                    particle.style.animationDelay = `${Math.random() * 5}s`;
+                    
+                    particle.style.animationDuration = `${Math.random() * 5 + 5}s`;
+                    
+                    container.appendChild(particle);
+                }
             }
-        }
+        });
     </script>
 </body>
 </html>
