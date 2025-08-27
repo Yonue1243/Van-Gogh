@@ -1,0 +1,68 @@
+
+    <div class="timeline-container">
+        <h1 class="timeline-title" id="timeline-title">Algunas de sus Obras</h1>
+        
+        <div class="timeline" id="timeline">
+        </div>
+    </div>
+
+    <script>
+        async function loadTimelineData() {
+            try {
+                const response = await fetch('/timeline.json');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                
+                if (!data || !data.timeline || !Array.isArray(data.timeline)) {
+                    throw new Error('Estructura de JSON inválida');
+                }
+                
+                generateTimeline(data);
+            } catch (error) {
+                console.error('Error cargando los datos:', error);
+                const fallbackData = {
+                    "timeline": [
+                        {
+                            "date": "1885",
+                            "title": "Los comedores de Patatas",
+                            "desc": "Van Gogh creó «Los comedores de patatas» en Nuenen",
+                            "img": "/public/patatas.jpg"
+                        }
+                    ]
+                };
+                generateTimeline(fallbackData);
+            }
+        }
+
+        function generateTimeline(data) {
+            const timelineContainer = document.getElementById('timeline');
+            const timelineTitle = document.getElementById('timeline-title');
+            
+            timelineContainer.innerHTML = '';
+            
+            if (data && data.timeline && Array.isArray(data.timeline)) {
+                data.timeline.forEach((event, index) => {
+                    const timelineItem = document.createElement('div');
+                    timelineItem.className = 'timeline-item';
+                    
+                    timelineItem.innerHTML = `
+                        <div class="timeline-content">
+                            <img src="${event.img}" alt="${event.title}" class="timeline-img">
+                            <div class="timeline-date">${event.date}</div>
+                            <h2 class="timeline-title">${event.title}</h2>
+                            <p class="timeline-desc">${event.desc}</p>
+                            <div class="timeline-arrow"></div>
+                        </div>
+                    `;
+                    
+                    timelineContainer.appendChild(timelineItem);
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadTimelineData);
+    </script>
