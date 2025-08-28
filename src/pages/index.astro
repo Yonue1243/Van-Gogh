@@ -24,6 +24,126 @@ import '../styles/Timeline.css';
 			<HeroSection />
 			<BiographySection />
 			<VerticalTimeline />
+
+			<div class="music-player">
+				<button class="music-btn" id="playPauseBtn">
+					<i class="fas fa-play"></i>
+				</button>
+				
+				<div class="music-info">
+					<div class="music-title" id="musicTitle">Música</div>
+					<div class="music-composer" id="musicComposer">Compositor</div>
+				</div>
+				
+				<div class="music-visualizer">
+					<div class="bar"></div>
+					<div class="bar"></div>
+				</div>
+				
+				<div class="volume-control">
+					<i class="fas fa-volume-up" style="color: #D4AF37;"></i>
+					<input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+				</div>
+			</div>
+			
+			<!-- Elementos de audio (ocultos) -->
+			<audio id="backgroundMusic1" preload="auto">
+				<source src="/Melody.mp3" type="audio/mpeg">
+			</audio>
+			
+			<audio id="backgroundMusic2" preload="auto">
+				<source src="/LoveStory.mp3" type="audio/mpeg">
+			</audio>
+
+					<script>
+			// Script para controlar la música de fondo
+			document.addEventListener('DOMContentLoaded', function() {
+				const playPauseBtn = document.getElementById('playPauseBtn');
+				const volumeSlider = document.getElementById('volumeSlider');
+				const musicTitle = document.getElementById('musicTitle');
+				const musicComposer = document.getElementById('musicComposer');
+				const music1 = document.getElementById('backgroundMusic1');
+				const music2 = document.getElementById('backgroundMusic2');
+				
+				// Lista de música con información
+				const musicTracks = [
+					{
+						element: music1,
+						title: "You Are My Melody",
+						composer: "Unis Abdullaev"
+					},
+					{
+						element: music2, 
+						title: "Love Story",
+						composer: "Flavio Belardo"
+					}
+				];
+				
+				let currentTrackIndex = 0;
+				let isPlaying = false;
+				
+				music1.volume = 0.2;
+				music2.volume = 0.2;
+				
+				// Evento cuando termina una canción
+				music1.addEventListener('ended', playNextTrack);
+				music2.addEventListener('ended', playNextTrack);
+				
+				volumeSlider.addEventListener('input', function() {
+					const volume = parseFloat(this.value);
+					music1.volume = volume;
+					music2.volume = volume;
+				});
+				
+				playPauseBtn.addEventListener('click', function() {
+					if (isPlaying) {
+						pauseMusic();
+					} else {
+						playMusic();
+					}
+				});
+				
+				function playNextTrack() {
+					musicTracks[currentTrackIndex].element.pause();
+					
+					currentTrackIndex = (currentTrackIndex + 1) % musicTracks.length;
+					
+					playCurrentTrack();
+				}
+				
+				function playCurrentTrack() {
+					const currentTrack = musicTracks[currentTrackIndex];
+					
+					musicTitle.textContent = currentTrack.title;
+					musicComposer.textContent = currentTrack.composer;
+					
+					currentTrack.element.play()
+						.then(() => {
+							isPlaying = true;
+							playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+						})
+						.catch(error => {
+							console.log("Error al reproducir música:", error);
+						});
+				}
+				
+				function playMusic() {
+					playCurrentTrack();
+				}
+				
+				function pauseMusic() {
+					musicTracks[currentTrackIndex].element.pause();
+					isPlaying = false;
+					playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+				}
+				
+				window.addEventListener('load', function() {
+					musicTitle.textContent = "Click para reproducir";
+					musicComposer.textContent = "Música clásica";
+				});
+			});
+		</script>
+
 		</main>
 	</body>
 </html>
