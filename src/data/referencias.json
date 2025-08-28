@@ -1,0 +1,64 @@
+{
+  "mediaItems": [
+    {
+      "title": "Loving Vincent",
+      "year": "2017",
+      "type": "Película",
+      "image": "/loving-vincent.jpg",
+      "description": "La primera película pintada completamente al óleo, con 65,000 cuadros realizados por 125 pintores para contar la vida y misteriosas circunstancias surrounding la muerte de Van Gogh.",
+      "referenceIcon": "fas fa-palette",
+      "referenceTitle": "Referencia a Van Gogh",
+      "referenceText": "Cada fotograma es una pintura al óleo realizada en el estilo de Van Gogh, haciendo que toda la película sea un homenaje visual a su técnica y visión artística."
+    },
+    {
+      "title": "El Loco del Pelo Rojo",
+      "year": "1956",
+      "type": "Película",
+      "image": "/locorojo.jpg",
+      "description": "Clásico del cine biográfico con Kirk Douglas como Vincent van Gogh y Anthony Quinn como Paul Gauguin. La película explora la tumultuosa vida y la lucha artística de Van Gogh.",
+      "referenceIcon": "fas fa-film",
+      "referenceTitle": "Referencia a Van Gogh",
+      "referenceText": "La película representa los momentos clave de la vida de Van Gogh, incluyendo su relación con Gauguin y el incidente de la oreja cortada."
+    },
+    {
+      "title": "Doctor Who",
+      "year": "2010",
+      "type": "Serie de TV",
+      "image": "/who.jpg",
+      "description": "En el episodio \"Vincent and the Doctor\", el Undécimo Doctor lleva a Vincent van Gogh al Museo de Orsay en París para mostrarle cómo su obra será apreciada en el futuro.",
+      "referenceIcon": "fas fa-tv",
+      "referenceTitle": "Referencia a Van Gogh",
+      "referenceText": "El episodio representa con sensibilidad la lucha de Van Gogh con la enfermedad mental y termina con una emotiva escena donde descubre su legado."
+    },
+    {
+      "title": "Midnight in Paris",
+      "year": "2011",
+      "type": "Película",
+      "image": "/midnight.jpg",
+      "description": "La película de Woody Allen presenta cameos de varios artistas de la Generación Perdida, incluyendo una aparición de Vincent van Gogh durante los viajes en el tiempo del protagonista.",
+      "referenceIcon": "fas fa-landmark",
+      "referenceTitle": "Referencia a Van Gogh",
+      "referenceText": "Aunque es una aparición breve, Van Gogh es representado como parte del vibrante mundo artístico de París que tanto influenció su obra."
+    },
+    {
+      "title": "At Eternity's Gate",
+      "year": "2018",
+      "type": "Película",
+      "image": "/eternity.jpg",
+      "description": "Protagonizada por Willem Dafoe como Vincent van Gogh, esta película se centra en los últimos años del artista en Francia, donde creó algunas de sus obras más famosas.",
+      "referenceIcon": "fas fa-star",
+      "referenceTitle": "Referencia a Van Gogh",
+      "referenceText": "La película ofrece una perspectiva introspectiva sobre el proceso creativo de Van Gogh y su lucha con la salud mental."
+    },
+    {
+      "title": "Vincent and Theo",
+      "year": "1990",
+      "type": "Película",
+      "image": "/theo.jpg",
+      "description": "Esta película se centra en la relación entre Vincent van Gogh y su hermano Theo, quien fue su mayor apoyo emocional y financiero throughout su carrera artística.",
+      "referenceIcon": "fas fa-heart",
+      "referenceTitle": "Referencia a Van Gogh",
+      "referenceText": "Explora la profunda conexión entre los hermanos Van Gogh y cómo Theo jugó un papel crucial en la preservación del legado artístico de Vincent."
+    }
+  ]
+}
