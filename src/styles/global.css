@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+html{
+	scroll-behavior: smooth;
+}
 :root {
             --primary-color: #D4AF37;
             --secondary-color: #B8860B;
@@ -10,8 +14,11 @@
             --dark-color: #2C241B;
             --light-color: #F8F4E9;
             --text-color: #4A4238;
-    --card-width: 1000px;
-    --spacing: 2rem;
+			--card-width: 1000px;
+			--spacing: 2rem;
+	        --gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --light-gold: #FFD700;
 }
 
 body {

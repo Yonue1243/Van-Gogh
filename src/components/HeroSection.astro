@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vincent van Gogh - Legado Artístico</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
-
 </head>
 <body>
     <section class="hero-section">
@@ -27,15 +26,33 @@
         <div class="hero-content">
             <h1 class="animate-fade">Vincent van Gogh</h1>
             <p class="animate-fade">Explorando el legado del artista</p>
-            <button class="hero-button animate-fade">Descubrir más</button>
+            <!-- Quitar el onclick y usar un ID para el botón -->
+            <button id="discoverBtn" class="hero-button animate-fade">Descubrir más</button>
         </div>
     </section>
 
     <script>
+        // Función para scroll suave
+        function scrollToBiografia() {
+            const biografiaSection = document.getElementById('biografia');
+            if (biografiaSection) {
+                biografiaSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.getElementById('bgVideo');
             const loader = document.getElementById('loader');
             const animatedElements = document.querySelectorAll('.animate-fade');
+            const discoverBtn = document.getElementById('discoverBtn');
+            
+            // Añadir event listener al botón
+            if (discoverBtn) {
+                discoverBtn.addEventListener('click', scrollToBiografia);
+            }
             
             const isVideoPlaying = (video) => {
                 return !!(video.currentTime > 0 && !video.paused && !video.ended && video.readyState > 2);
@@ -80,16 +97,13 @@
             };
             
             video.addEventListener('loadeddata', () => {
-                console.log("Video cargado");
             });
             
             video.addEventListener('canplay', () => {
-                console.log("Video listo para reproducirse");
                 loader.classList.add('hidden');
             });
             
             video.addEventListener('error', (e) => {
-                console.error("Error al cargar el video:", e);
                 loader.classList.add('hidden');
                 showContent();
             });
