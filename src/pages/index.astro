@@ -53,7 +53,6 @@ import '../styles/Timeline.css';
 				</div>
 			</div>
 			
-			<!-- Elementos de audio (ocultos) -->
 			<audio id="backgroundMusic1" preload="auto">
 				<source src="/Melody.mp3" type="audio/mpeg">
 			</audio>
@@ -63,7 +62,6 @@ import '../styles/Timeline.css';
 			</audio>
 
 					<script>
-			// Script para controlar la música de fondo
 			document.addEventListener('DOMContentLoaded', function() {
 				const playPauseBtn = document.getElementById('playPauseBtn');
 				const volumeSlider = document.getElementById('volumeSlider');
@@ -72,7 +70,6 @@ import '../styles/Timeline.css';
 				const music1 = document.getElementById('backgroundMusic1');
 				const music2 = document.getElementById('backgroundMusic2');
 				
-				// Lista de música con información
 				const musicTracks = [
 					{
 						element: music1,
@@ -92,7 +89,6 @@ import '../styles/Timeline.css';
 				music1.volume = 0.2;
 				music2.volume = 0.2;
 				
-				// Evento cuando termina una canción
 				music1.addEventListener('ended', playNextTrack);
 				music2.addEventListener('ended', playNextTrack);
 				
@@ -146,7 +142,7 @@ import '../styles/Timeline.css';
 				
 				window.addEventListener('load', function() {
 					musicTitle.textContent = "Click para reproducir";
-					musicComposer.textContent = "Música clásica";
+					musicComposer.textContent = "Música";
 				});
 			});
 		</script>

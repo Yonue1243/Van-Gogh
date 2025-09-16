@@ -25,13 +25,11 @@
         <div class="hero-content">
             <h1 class="animate-fade">Vincent van Gogh</h1>
             <p class="animate-fade">Explorando el legado del artista</p>
-            <!-- Quitar el onclick y usar un ID para el botón -->
             <button id="discoverBtn" class="hero-button animate-fade">Descubrir más</button>
         </div>
     </section>
 
     <script>
-        // Función para scroll suave
         function scrollToBiografia() {
             const biografiaSection = document.getElementById('biografia');
             if (biografiaSection) {
@@ -48,7 +46,6 @@
             const animatedElements = document.querySelectorAll('.animate-fade');
             const discoverBtn = document.getElementById('discoverBtn');
             
-            // Añadir event listener al botón
             if (discoverBtn) {
                 discoverBtn.addEventListener('click', scrollToBiografia);
             }
